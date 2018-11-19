@@ -1,0 +1,213 @@
+ 
+        <div class="row">
+          <div class="col-md-8">
+            <div class="card">
+              <div class="card-header">
+                <h5 class="title">Edit Profile</h5>
+              </div>
+              <div class="card-body">
+                <form ng-controller="productUploadController">
+                  <div ng-if="process==1">
+                  <div class="row">
+                    <div class="col-md-5 pr-1">
+                      <div class="form-group">
+                        <label>Nome</label>
+                        <input type="text" class="form-control"  placeholder="Nome" 
+                        ng-model="product.name">
+                      </div>
+                    </div>
+                    <div class="col-md-3 px-1">
+                      <div class="form-group">
+                        <label>Prezzo</label>
+                        <input type="text" class="form-control" placeholder="prezzo"ng-model="product.price" >
+                      </div>
+                    </div>
+                    <div class="col-md-4 pl-1">
+                      <div class="form-group">
+                        <label >Sconto</label>
+                        <input type="number" class="form-control" placeholder="sconto"
+                        ng-model="product.discount">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    
+                    <div class="col-md-12 pl-1">
+                      <div class="form-group">
+                        <label>Description</label>
+                        <textarea type="textarea" class="form-control" placeholder="description" ng-model="product.description">
+                        </textarea>
+                        <button class="btn btn-outline-primary rounded" ng-click="uploadProduct()">Avanti</button>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+
+                <div ng-if="process==2">
+                  <div class="row">
+                    <div class="col-md-7">
+
+                      <div class="form-group card" style="height:50px;">
+                        <label>+Inserisci le immagini</label>
+  <input type="file" name="file" onchange="angular.element(this).scope().uploadFile(this.files)">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+
+                    <div class="col-md-4 pr-1">
+                      
+                      <div class="form-group">
+                        <label>Categoria</label>
+                        <input type="text" class="form-control" placeholder="Categoria" ng-model="product.details.category" >
+                      </div>
+                    </div>
+                    <div class="col-md-4 px-1">
+                      <div class="form-group">
+                        <label>Marca</label>
+                        <input type="text" class="form-control" placeholder="Marca" ng-model="product.details.brand">
+                      </div>
+                    </div>
+                    <div class="col-md-4 pl-1">
+                      <div class="form-group">
+                        <label>Sesso</label>
+                        <select class="form-control" ng-model="product.details.man">
+                          <option value="0">Neutro</option>
+                          <option value="1">Uomo</option>
+                          <option value="2">Donna</option>
+                        </select>
+
+
+                    </div>
+                  </div>
+                </div>
+
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label>Colore</label>
+                        <input type="text" ng-model="product.details.color" class="form-control" >
+                        <hr>
+                        <button class="btn btn-outline-primary rounded" ng-click="uploadProductDetail()">Avanti</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div ng-if="process==3">
+                  <div class="row">
+                    <div class="col-md-6 pl-1">
+                      <div class="form-group">
+                        <label>Taglia</label>
+                        <select class="form-control" ng-model="product.tails.tail">
+                          <option value="XS">XS</option>
+                          <option value="XS">XXS</option>
+                          <option value="S">S</option>
+                          <option value="M">M</option>
+                          <option value="L">L</option>
+                          <option value="L">XL</option>
+                          <option value="L">XXL</option>
+                        </select>
+
+
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                    <label>Quantità</label>
+                        <input type="number" class="form-control" placeholder="prezzo"ng-model="product.tails.quantity" >
+                      </div>
+                      <a><button class="btn btn-outline-primary rounded" ng-click="uploadTails()">+ADD</button></a>
+                  </div>
+                    
+                  </div>
+                </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 ">
+            <!--card-->
+
+            <div class="product product-single" ng-if="product.img==null ">
+            <div class="card"  style="background-image:url('/img/product-img/product2.jpg');position:relative;background-position:center ;background-size:100%;background-repeat:no-repeat;height:300px;">
+               <div class="product-label " style="background-color:rgb(187, 160, 93);">
+
+                        <span class="sale ">{{product.discount}}%</span>
+                      </div>
+              <div class="card-body" style="position:absolute;bottom:0px;width:100%;background: rgba(100,100,100,0.4);">
+
+                <div class="description my-shadow" >
+                    <h5 class="title my-primary-text">{{product.name}}</h5>
+                  
+                  <p class="description">
+                    
+                    <h4 class="product-price my-primary-text " style="margin:0 auto;" >
+                    {{(1-(product.discount/100))*product.price | number:2}}
+                  <del ng-if="product.discount>0" class="product-old-price my-primary-text">{{product.price}}</del>
+                </h4>
+                  </p>
+
+
+                </div>
+                
+              </div>
+            </div>
+          </div>
+
+          <div  ng-if="product.img != null ">
+            <div ng-include=" 'productCard.htm' "></div>
+          </div>
+            <!--/card
+
+            
+
+            <div class="product product-single" ng-if="product.img!= null ">
+
+            <div class="card" ng-if="product.img!= ''"  ng-style="{'background-image': 'url(' + product.img + ')'}"
+
+            style="position:relative;background-position:center center;background-size:cover;height:400px;">
+              <div class="card-body" style="position:absolute;bottom:0px;width:100%;background: rgba(100,100,100,0.4);">
+                <div class="description" >
+                    <h6 class="title">{{product.name}}</h6>
+                  </a>
+                  <p class="description">
+                    <div class="product-price">
+                    {{product.price}}
+                  </div>
+                  <del class="product-old-price">{{product.discount}}</del>
+                  </p>
+                    
+
+                  
+
+
+                </div>
+                
+              </div>
+            </div>
+          </div>
+            /card-->
+          </div>
+
+        </div>
+      </div>
+
+
+      <div class="content card">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="row">
+              <div ng-repeat="img in imgList " class="col-md-6 " >
+                  <div class="card"
+                  ng-style="{'background-image': 'url(' + img + ')'}"
+                  style="position:relative;background-position:center center;background-size:100%;background-repeat:no-repeat;height:300px;padding-left:2px;padding-right:2px;">
+                </div>
+              </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+
+        </div>
+      </div>
+

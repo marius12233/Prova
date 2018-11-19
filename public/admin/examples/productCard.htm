@@ -1,0 +1,29 @@
+  <div class="product product-single"  >
+            <div class="card"  
+            ng-style="{'background-image': 'url(' + product.img + ')'}"
+            style="position:relative;background-position:center center;background-size:100%;background-repeat:no-repeat;height:300px;">
+               <div class="product-label " style="background-color:rgb(187, 160, 93);">
+
+                        <span class="sale ">{{product.discount}}%</span>
+                      </div>
+              <div class="card-body" style="position:absolute;bottom:0px;width:100%;background: rgba(100,100,100,0.4);">
+
+                <div class="description " >
+                    <h5 class="title black">{{product.name}}</h5>
+                  
+                  <p class="description " >
+                    
+                    <h4 class="product-price black " style="margin:0 auto;" >
+                    {{(1-(product.discount/100))*product.price | number:2}}
+                  <del ng-if="product.discount>0" class="product-old-price my-primary-text">{{product.price}}</del>
+                </h4>
+                  </p>
+
+
+                </div>
+                
+              </div>
+            </div>
+          </div>
+
+       

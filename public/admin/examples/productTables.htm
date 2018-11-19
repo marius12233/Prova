@@ -1,0 +1,110 @@
+<div class="row" >
+  <div class="col-md-12">
+           <div class="card" ng-controller="productUpdateController" >
+              <div class="card-header">
+                <h4 class="card-title"> Tabella Prodotti</h4>
+              </div>
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table class="table">
+                    <thead class=" text-primary">
+                      <th>
+                        Nome
+                      </th>
+                      <th>
+                        Prezzo
+                      </th>
+                      <th>
+                        Sconto
+                      </th>
+                      <th>Modifica
+                      </th>
+
+                      
+                    </thead>
+
+                    <tbody>
+                     
+
+                      <tr ng-repeat="prod in pList">
+                        <td>
+                          {{prod.name}} 
+                        </td>
+                        <td >
+                          {{prod.price}} 
+                        </td>
+                        <td >
+                          {{prod.discount}}
+                        </td>
+                        <td>
+                          <button class="btn btn-outline-primary rounded" ng-click="deleteProduct(prod.href.link)">Elimina</button>
+                          <button class="btn btn-outline-primary rounded" ng-click="uploadProduct()">Modifica</button>
+                        </td>
+                       
+                      </tr>
+                      
+                    </tbody>
+                  </table>
+                  <ul class="pagination py-3 mb-0">
+                     <!-- <li class="page-item active">
+                        <a class="page-link " href="#">1</a>
+                      </li>-->
+
+                      <li class="page-item"  ng-repeat="num in [] | range:npage">
+                        <a class="page-link"  ng-click="getProductsByPage(num+1)">{{num+1}}</a>
+                      </li>
+                     
+                      
+                      
+                      </ul>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="card card-plain">
+              <div class="card-header">
+                <h4 class="card-title"> Tabella sessione</h4>
+                <p class="category"> Qui i prodotti aggiunti nella sessione odierna</p>
+              </div>
+              <div class="card-body">
+                <div class="table-responsive">
+                	<table class="table">
+                    <thead class=" text-primary">
+                      <th>
+                        Tag
+                      </th>
+                      <th>
+                        Nome
+                      </th>
+                      <th>
+                        Quantità
+                      </th>
+                      
+                    </thead>
+
+                    <tbody>
+                     
+
+                      <tr ng-repeat="prod in list">
+                        <td>
+                          {{prod.target}} 
+                        </td>
+                        <td >
+                          {{prod.name}} 
+                        </td>
+                        <td >
+                          {{prod.quality}}
+                        </td>
+                       
+                      </tr>
+                      
+                    </tbody>
+                  </table>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>

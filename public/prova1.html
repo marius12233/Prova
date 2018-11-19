@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.standalone.min.css">
+  <link rel="stylesheet" href="now-ui-kit.css" type="text/css">
+  <link rel="stylesheet" href="assets/css/nucleo-icons.css" type="text/css">
+  <link type="text/css" rel="stylesheet" href="css/slick.css" />
+  <link type="text/css" rel="stylesheet" href="css/slick-theme.css" />
+
+
+  <!-- nouislider -->
+  <link type="text/css" rel="stylesheet" href="css/nouislider.min.css" />
+
+  <!-- Font Awesome Icon -->
+
+  <!-- Custom stlylesheet -->
+  <link type="text/css" rel="stylesheet" href="css/style.css" />
+  <script src="assets/js/navbar-ontop.js"></script>
+  <link rel="icon" href="https://templates.pingendo.com/assets/Pingendo_favicon.ico">
+  <title>Now UI Kit by Creative Tim</title>
+  <meta name="description" content="Start your development with a beautiful Bootstrap 4 UI kit. It is yours Free.">
+  <meta name="keywords" content="bootstrap 4, bootstrap 4 uit kit, bootstrap 4 kit, now ui, now ui kit, creative tim, html kit, html css template, web template, bootstrap, bootstrap 4, css3 template, frontend, responsive bootstrap template, bootstrap ui kit, responsive ui kit">
+
+  <style>
+    
+    .dropzone,
+.dropzone * {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.dropzone {
+  position: relative;
+  min-height: 260px;
+  border: 2px dashed rgba(0,0,0,0.3);
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  background: rgba(0,0,0,0.03);
+  padding: 23px;
+}
+.dropzone.drag-hover {
+  border-color: rgba(0,0,0,0.15);
+  background: rgba(0,0,0,0.04);
+}
+.dropzone.drag-hover .message {
+  opacity: 0.15;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=15);
+  filter: alpha(opacity=15);
+}
+.dropzone.started .message {
+  opacity: 0;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  filter: alpha(opacity=0);
+}
+.dropzone .message {
+  opacity: 1;
+  -ms-filter: none;
+  filter: none;
+  -webkit-transition: opacity 0.3s ease-in-out;
+  -moz-transition: opacity 0.3s ease-in-out;
+  -o-transition: opacity 0.3s ease-in-out;
+  -ms-transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
+  background: url("http://dl.dropbox.com/u/1559658/dropzone/spritemap.png") no-repeat 0 -108px;
+  position: absolute;
+  width: 168px;
+  height: 157px;
+  margin-left: -84px;
+  margin-top: -78.5px;
+  top: 50%;
+  left: 50%;
+}
+.dropzone .message span {
+  display: none;
+}
+.dropzone.browser-not-supported {
+  padding: 30px;
+}
+.dropzone.browser-not-supported .message {
+  position: relative;
+  background: url("http://dl.dropbox.com/u/1559658/dropzone/spritemap.png") no-repeat 0 0;
+  width: 204px;
+  height: 108px;
+  top: 0;
+  left: 0;
+  margin-left: 0;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+.dropzone .preview {
+  width: 100px;
+  height: 136px;
+  display: inline-block;
+  margin: 18px;
+  position: relative;
+}
+.dropzone .preview .details {
+  width: 100px;
+  height: 100px;
+  position: relative;
+}
+.dropzone .preview .details img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100px;
+  height: 100px;
+}
+.dropzone .preview .details .size {
+  color: #666;
+  font: 500 31px/31px "League Gothic", sans-serif;
+  position: absolute;
+  bottom: 2px;
+  left: 17px;
+  z-index: 100;
+}
+.dropzone .preview .details .content {
+  font-size: 3px;
+  white-space: pre;
+  position: absolute;
+  top: 5px;
+  left: 12px;
+  right: 19px;
+  bottom: 5px;
+  overflow: hidden;
+  line-height: 100%;
+  cursor: default;
+  word-wrap: break-word;
+}
+.dropzone .preview.file-preview .details {
+  background: url("http://dl.dropbox.com/u/1559658/dropzone/spritemap.png") no-repeat 8px -265px;
+}
+.dropzone .preview.image-preview .details .size {
+  display: none;
+  color: #000;
+}
+.dropzone .preview.image-preview .details:hover .size {
+  display: block;
+}
+.dropzone .preview.image-preview .details:hover img {
+  opacity: 0.4;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=40);
+  filter: alpha(opacity=40);
+}
+.dropzone .preview.success .success-mark {
+  opacity: 1;
+  -ms-filter: none;
+  filter: none;
+}
+.dropzone .preview.success .progress .upload {
+  background: #6fb61d;
+}
+.dropzone .preview.error .error-mark {
+  opacity: 1;
+  -ms-filter: none;
+  filter: none;
+}
+.dropzone .preview.error .progress .upload {
+  background: #bc311f;
+}
+.dropzone .preview .error-mark,
+.dropzone .preview .success-mark {
+  opacity: 0;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  filter: alpha(opacity=0);
+  -webkit-transition: opacity 0.4s ease-in-out;
+  -moz-transition: opacity 0.4s ease-in-out;
+  -o-transition: opacity 0.4s ease-in-out;
+  -ms-transition: opacity 0.4s ease-in-out;
+  transition: opacity 0.4s ease-in-out;
+  position: absolute;
+  width: 42px;
+  height: 42px;
+  top: -10px;
+  left: -5px;
+}
+.dropzone .preview .error-mark span,
+.dropzone .preview .success-mark span {
+  display: none;
+}
+.dropzone .preview .error-mark {
+  background: url("http://dl.dropbox.com/u/1559658/dropzone/spritemap.png") no-repeat 0 -365px;
+}
+.dropzone .preview .success-mark {
+  background: url("http://dl.dropbox.com/u/1559658/dropzone/spritemap.png") no-repeat -42px -365px;
+}
+.dropzone .preview .progress {
+  position: relative;
+  margin: 8px 0 4px 0;
+  height: 10px;
+  background: rgba(0,0,0,0.08);
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+}
+.dropzone .preview .progress .upload {
+  -webkit-animation: loading 0.4s linear infinite;
+  -moz-animation: loading 0.4s linear infinite;
+  -o-animation: loading 0.4s linear infinite;
+  -ms-animation: loading 0.4s linear infinite;
+  animation: loading 0.4s linear infinite;
+  -webkit-transition: width 0.3s ease-in-out;
+  -moz-transition: width 0.3s ease-in-out;
+  -o-transition: width 0.3s ease-in-out;
+  -ms-transition: width 0.3s ease-in-out;
+  transition: width 0.3s ease-in-out;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background: url("http://dl.dropbox.com/u/1559658/dropzone/spritemap.png") repeat-x 0px -407px;
+}
+.dropzone .preview .filename {
+  font-size: 12px;
+  height: 12px;
+  position: relative;
+}
+.dropzone .preview .filename span {
+  width: 100px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+.dropzone .preview .error-message {
+  opacity: 0;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  filter: alpha(opacity=0);
+  -webkit-transition: opacity 0.3s ease-in-out;
+  -moz-transition: opacity 0.3s ease-in-out;
+  -o-transition: opacity 0.3s ease-in-out;
+  -ms-transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
+  position: absolute;
+  top: -5px;
+  left: -20px;
+  background: rgba(245,245,245,0.8);
+  padding: 8px 10px;
+  color: #800;
+  min-width: 140px;
+  max-width: 500px;
+  z-index: 500;
+}
+.dropzone .preview:hover.error .error-message {
+  opacity: 1;
+  -ms-filter: none;
+  filter: none;
+}
+@-moz-keyframes loading {
+  0% {
+    background-position: 0 -407px;
+  }
+
+  100% {
+    background-position: -14px -407px;
+  }
+}
+@-webkit-keyframes loading {
+  0% {
+    background-position: 0 -407px;
+  }
+
+  100% {
+    background-position: -14px -407px;
+  }
+}
+@-o-keyframes loading {
+  0% {
+    background-position: 0 -407px;
+  }
+
+  100% {
+    background-position: -14px -407px;
+  }
+}
+@-ms-keyframes loading {
+  0% {
+    background-position: 0 -407px;
+  }
+
+  100% {
+    background-position: -14px -407px;
+  }
+}
+@keyframes loading {
+  0% {
+    background-position: 0 -407px;
+  }
+
+  100% {
+    background-position: -14px -407px;
+  }
+}
+
+  </style>
+</head>
+
+<body class="" ng-app="upload">
+  
+
+<!--<div ng-app="dropZone" ng-controller="dropZoneCtrl">
+<form action="/upload" 
+    class="dropzone" 
+    drop-zone 
+    id="file-dropzone">-->
+
+<form ng-controller="CTRL">
+  <h2>Loggati</h2>
+  <input type="email" name="email" ng-model="user.username">
+  <input type="password" name="password" ng-model="user.password">
+    <button ng-click="getAuth();">LogIn</button>
+
+  <h2>Inserisci prodotto</h2>
+  <input type="text" name="name" ng-model="product.name">
+  <input type="number" name="price" ng-model="product.price">
+  <input type="number" name="discount" ng-model="product.discount">
+  <button ng-click="uploadProduct();">Invia</button>
+  <h2>Inserisci le immagini</h2>
+  <input type="file" name="file" onchange="angular.element(this).scope().uploadavatar(this.files)">
+</form>
+<div >{{list[0]}}</div>
+</div>
+
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="assets/js/parallax.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('[data-toggle="popover"]').popover();
+      $('[data-toggle="tooltip"]').tooltip();
+      $('#datepicker-example').datepicker({
+        calendarWeeks: true,
+        autoclose: true,
+        todayHighlight: true
+      });
+    });
+  </script>
+ 
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+ <script>
+
+  angular.module('upload', []).controller('CTRL',function($http,$scope){
+
+    $scope.product={stock:1,description:"Good!"};
+    $scope.list=[];
+    $scope.user ={grant_type:"password",client_id:2,client_secret:"DJkHupOD3eEbdiCpurw9Kwfw6RsZByVf9FMQePjB"};
+
+    $scope.getAuth = function(){
+               $http.post("http://localhost:8000/oauth/token",$scope.user)
+                        .success(function(response){
+                            console.log(response);
+                            console.log(response.access_token);
+
+                            
+                            $scope.user.token=response.access_token;
+                            window.localStorage.setItem("token2", response.access_token);
+                            console.log(window.localStorage.getItem("token2"));
+                            alert("Ti sei loggato!");
+
+                            window.localStorage.setItem("adminUser",$scope.user.username);
+
+                            
+                            
+                            
+                          })
+                        .error(function(response){
+                          console.log(response);
+                            alert("Accesso negato!");
+                            });
+    };
+
+    $scope.uploadProduct = function(){
+      var token = 'Bearer '+window.localStorage.getItem("token2");
+      console.log(token);
+      $http.post('http://localhost:8000/api/products',$scope.product,{
+
+                        
+                        headers: {
+                                  'Accept' : 'application/json',
+                                  'Authorization': token
+                                   //transformRequest: angular.identity
+
+                                   // $scope.user.token
+
+
+                                    }
+                })
+                
+                    .success(function(response) {
+                        
+                    alert("Prodotto aggiunto correttamente!");
+                    $scope.product = response.data;
+                        
+
+                    })
+                    .error(function(response) {
+                        alert("Si è verificato un errore!");
+                        console.log(response);
+                    });
+    };
+    
+    $scope.uploadavatar = function(files){
+    var token = 'Bearer '+window.localStorage.getItem("token2");
+    var fd = new FormData();
+    $scope.list.push(files[0].name);
+    console.log($scope.list[$scope.list.length-1]);
+
+    fd.append("file",files[0]);
+    $http.post("http://localhost:8000/api/products/"+$scope.product.id +"/uploadFile",fd, {
+      //withCredentials: true,
+      headers: {'Content-type' : undefined,
+                'Authorization': token
+    },
+     transformRequest: angular.identity})
+    .then(function successCallback(response){
+      console.log(response);
+      alert(response);
+    },function errorCallback(response){
+      console.log(response);
+      alert(response);
+    });
+    
+  };
+
+
+  });
+   
+   /*angular.module('dropZone', []).controller('dropZoneCtrl',function($scope){
+}).directive('dropZone', function() {
+  return function(scope, element, attrs) {
+    element.dropzone({ 
+        url: "/upload",
+        maxFilesize: 100,
+        paramName: "uploadfile",
+        maxThumbnailFilesize: 5
+    });
+  }
+});*/
+ </script>
+
+</body>
+
+</html>
